@@ -10,7 +10,7 @@ def parseLine(line):
     temp = float(fields[3])*0.1*(9.0/5.0) + 32.0
     return (stationID, entryType, temp)
 
-lines = sc.textFile("1800.csv")
+lines = sc.textFile("data/1800.csv")
 
 parsedlines = lines.map(parseLine)
 minTemp = parsedlines.filter(lambda x: "TMIN" in x[1])

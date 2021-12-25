@@ -10,7 +10,7 @@ conf = SparkConf().setMaster("local").setAppName("SpendByCustomer")
 sc = SparkContext(conf=conf)
 
 
-fields = sc.textFile("customer-orders.csv")
+fields = sc.textFile("data/customer-orders.csv")
 rdd = fields.map(parseLine)
 
 amountspend = rdd.reduceByKey(lambda x,y: x+y)
